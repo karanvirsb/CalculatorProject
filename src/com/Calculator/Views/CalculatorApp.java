@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class CalculatorApp extends Application {
@@ -16,13 +17,18 @@ public class CalculatorApp extends Application {
        //setting up the app
         primaryStage.setTitle("Calculator");
         primaryStage.getIcons().add(new Image("com/Calculator/Assets/calculator.png"));
+
+        //The root pane
         GridPane root = new GridPane();
-        root.setAlignment(Pos.BASELINE_CENTER);
+        root.setAlignment(Pos.CENTER);
+        root.getStylesheets().add("com/Calculator/stylesheets/main.css");
 
+        //the label and textfied
+        Label calFinal = new Label("");
+        calFinal.setStyle("-fx-text-alignment: right;");
+        calFinal.setTextAlignment(TextAlignment.RIGHT);
 
-        Label calFinal = new Label("text");
         TextField calInput = new TextField();
-        calInput.setPromptText("Enter a number");
 
         calInput.setPrefWidth(375);
 
@@ -51,7 +57,7 @@ public class CalculatorApp extends Application {
         Button calDot = new Button (".");
 
         //adding the text and label in
-        root.add(calFinal, 0,0);
+        root.add(calFinal, 0,0, 4, 1);
         root.add(calInput, 0,1, 4, 1);
 
         //Adding the buttons in for the top row
@@ -93,7 +99,7 @@ public class CalculatorApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.setWidth(375);
         primaryStage.setHeight(500);
-        primaryStage.setResizable(false);
+        //primaryStage.setResizable(false);
         primaryStage.show();
     }
 

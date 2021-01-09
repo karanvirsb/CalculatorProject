@@ -1,0 +1,38 @@
+.root{
+    -fx-background-color: #121212;
+    -fx-font-family: "Roboto";
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+
+.button{
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-background-color: #121212;
+    -fx-text-fill: white;
+    -fx-border-color: gray;
+}
+
+.button:hover {
+    -fx-background-color: #404040;
+}
+
+.text-field{
+    -fx-pref-height: 100px;
+    -fx-font-weight: bold;
+    -fx-font-size: 50px;
+    -fx-text-alignment: right;
+    -fx-border-color: gray;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-pref-height: 100px;
+    -fx-font-weight: bold;
+    -fx-font-size: 50px;
+    -fx-text-alignment: right;
+    -fx-border-color: gray;
+}
