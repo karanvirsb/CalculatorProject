@@ -8,7 +8,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 public class Controllers{
 
@@ -19,7 +19,7 @@ public class Controllers{
     TextField calInput;
 
     @FXML
-    GridPane historyPane;
+    VBox historyVBox;
 
     @FXML
     ScrollPane historyScrollPane;
@@ -59,13 +59,12 @@ public class Controllers{
     }
 
     public void history(String previous, String ans){
+        calInput.setText("");
         Button prevSolution = new Button();
-        prevSolution.setStyle("-fx-font-size: 25px");
-        prevSolution.setText(previous + "=" + ans);
-        historyPane.setVgap(10);
-        GridPane.getVgrow(prevSolution);
-        historyPane.add(prevSolution, 0, i);
-        i++;
+        prevSolution.setPrefSize(200, 125);
+        prevSolution.setText(previous + "\n = " + ans);
+        historyVBox.getChildren().add(prevSolution);
+
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -121,8 +120,8 @@ public class Controllers{
         return historyScrollPane;
     }
 
-    public GridPane getHistoryPane() {
-        return historyPane;
+    public VBox getHistoryPane() {
+        return historyVBox;
     }
 
     public void keyTyped(KeyEvent keyEvent) {

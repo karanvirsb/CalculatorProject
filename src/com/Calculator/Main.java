@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -38,7 +38,7 @@ public class Main extends Application {
         });
 
         ScrollPane p = c.getHistoryScrollPane();
-        GridPane g = c.getHistoryPane();
+        VBox g = c.getHistoryPane();
         p.setContent(g);
 
         primaryStage.setTitle("Calculator");
