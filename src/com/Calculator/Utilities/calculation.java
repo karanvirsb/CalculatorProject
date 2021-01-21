@@ -3,9 +3,14 @@ package com.Calculator.Utilities;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class calculation {
+public final class calculation {
 
     public static String calculate(String expression){
+
+        ICalculateOperations multiplication = new calculateMultiplication();
+        ICalculateOperations subtraction = new calculateSubtraction();
+        ICalculateOperations addition = new calculateAddition();
+        ICalculateOperations division = new calculateDivision();
 
         boolean finished = false;
         double num1 = 0, num2 = 0, cal = 0;
@@ -39,11 +44,7 @@ public class calculation {
 
                 if(tmp.contains("*"))
                 {
-                    String[] split = tmp.split("[*]");
-                    num1 = Double.parseDouble(split[0]);
-                    num2 = Double.parseDouble(split[1]);
-                    cal = num1 * num2;
-                    finalCal =  finalCal.replace(bracketMatch.group(), String.valueOf(cal));
+                    finalCal =  finalCal.replace(bracketMatch.group(), String.valueOf(multiplication.calculateOperation(tmp)));
                 }
                 else if(tmp.contains("/")){
                     String[] split = tmp.split("[/]");
