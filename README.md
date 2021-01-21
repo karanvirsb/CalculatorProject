@@ -6,4 +6,4 @@ It is a simple calculator App that has most of the features that someone would n
 # Screenshots
 <hr />
 
-![](Images/appImage.png);
+![A calculator App picture](Images/appImage.png);
