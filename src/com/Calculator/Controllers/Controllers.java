@@ -11,6 +11,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Controllers{
 
     @FXML
@@ -27,7 +30,12 @@ public class Controllers{
 
     String previous = "";
     String ans = "";
-    static int i = 0;
+
+    // button that will be used to see the previous entered calculation
+    Button prevSolution = null;
+
+
+    //These are the methods used for the calculations
 
     public void insertNumber(String number){
         calInput.setText(calInput.getText() + number);
@@ -62,12 +70,13 @@ public class Controllers{
     }
 
     public void history(String previous, String ans){
-        calInput.setText("");
-        Button prevSolution = new Button();
+        prevSolution = new Button();
         prevSolution.setPrefSize(200, 100);
         prevSolution.setAlignment(Pos.TOP_LEFT);
         prevSolution.setText(previous + "\n = " + ans);
-        historyVBox.getChildren().add(prevSolution);
+        historyVBox.getChildren().addAll(prevSolution);
+        prevSolution.setOnMousePressed(this::mouseClicked);
+        calInput.setText("");
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -107,10 +116,15 @@ public class Controllers{
             case "<-":
                 backspace();
                 break;
+        }
 
-
-
-
+        if(source == prevSolution){
+            String beforeNewLine = ".*";
+            Pattern patternBeforeNewLine = Pattern.compile(beforeNewLine);
+            Matcher matcherBeforeNewLine = patternBeforeNewLine.matcher(prevSolution.getText());
+            if(matcherBeforeNewLine.find()){
+                calInput.setText(matcherBeforeNewLine.group());
+            }
         }
 
     }
@@ -125,6 +139,10 @@ public class Controllers{
 
     public VBox getHistoryPane() {
         return historyVBox;
+    }
+
+    public Button getPrevSolution() {
+        return prevSolution;
     }
 
     public void keyTyped(KeyEvent keyEvent) {
