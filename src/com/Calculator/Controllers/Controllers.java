@@ -2,6 +2,7 @@ package com.Calculator.Controllers;
 
 import com.Calculator.Utilities.calculation;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -51,20 +52,22 @@ public class Controllers{
     }
 
     public void calculate(){
-        previous = calInput.getText();
-        String finalCal = calculation.calculate(calInput.getText());
-        calFinal.setText(finalCal);
-        ans = finalCal;
-        history(previous, ans);
+        if(!calInput.getText().isEmpty()) {
+            previous = calInput.getText();
+            String finalCal = calculation.calculate(calInput.getText());
+            calFinal.setText(finalCal);
+            ans = finalCal;
+            history(previous, ans);
+        }
     }
 
     public void history(String previous, String ans){
         calInput.setText("");
         Button prevSolution = new Button();
-        prevSolution.setPrefSize(200, 125);
+        prevSolution.setPrefSize(200, 100);
+        prevSolution.setAlignment(Pos.TOP_LEFT);
         prevSolution.setText(previous + "\n = " + ans);
         historyVBox.getChildren().add(prevSolution);
-
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
