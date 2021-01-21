@@ -47,25 +47,13 @@ public final class calculation {
                     finalCal =  finalCal.replace(bracketMatch.group(), String.valueOf(multiplication.calculateOperation(tmp)));
                 }
                 else if(tmp.contains("/")){
-                    String[] split = tmp.split("[/]");
-                    num1 = Double.parseDouble(split[0]);
-                    num2 = Double.parseDouble(split[1]);
-                    cal = num1 / num2;
-                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(cal));
+                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(division.calculateOperation(tmp)));
                 }
                 else if(tmp.contains("+")){
-                    String[] split = tmp.split("[+]");
-                    num1 = Double.parseDouble(split[0]);
-                    num2 = Double.parseDouble(split[1]);
-                    cal = num1 + num2;
-                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(cal));
+                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(addition.calculateOperation(tmp)));
                 }
                 else if(tmp.contains("-")){
-                    String[] split = tmp.split("[-]");
-                    num1 = Double.parseDouble(split[0]);
-                    num2 = Double.parseDouble(split[1]);
-                    cal = num1 + num2;
-                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(cal));
+                    finalCal =  finalCal.replace(bracketMatch.toString(), String.valueOf(subtraction.calculateOperation(tmp)));
                 }
                 else{
                     return "Error";
@@ -74,38 +62,20 @@ public final class calculation {
             }
            else if(multiMatch.find())
             {
-                String tmp = multiMatch.group();
-                String[] split = tmp.split("[*]");
-                num1 = Double.parseDouble(split[0]);
-                num2 = Double.parseDouble(split[1]);
-                cal = num1 * num2;
-                finalCal =  finalCal.replaceAll(regMulti, String.valueOf(cal));
+                finalCal =  finalCal.replaceAll(regMulti, String.valueOf(multiplication.calculateOperation(multiMatch.group())));
             }
             else if(divMatch.find())
             {
-                String tmp = divMatch.group();
-                String[] split = tmp.split("[/]");
-                num1 = Double.parseDouble(split[0]);
-                num2 = Double.parseDouble(split[1]);
-                cal = num1 / num2;
-                finalCal =  finalCal.replaceAll(regDiv, String.valueOf(cal));
+                finalCal =  finalCal.replaceAll(regDiv, String.valueOf(division.calculateOperation(divMatch.group())));
             }
             else if(addMatch.find()){
-                String tmp = addMatch.group();
-                String[] split = tmp.split("[+]");
-                num1 = Double.parseDouble(split[0]);
-                num2 = Double.parseDouble(split[1]);
-                cal = num1 + num2;
-                finalCal =  finalCal.replaceAll(regAdd, String.valueOf(cal));
+
+                finalCal =  finalCal.replaceAll(regAdd, String.valueOf(addition.calculateOperation(addMatch.group())));
             }
             else if(subMatch.find())
             {
-                String tmp = subMatch.group();
-                String[] split = tmp.split("[-]");
-                num1 = Double.parseDouble(split[0]);
-                num2 = Double.parseDouble(split[1]);
-                cal = num1 + num2;
-                finalCal =  finalCal.replaceAll(regSub, String.valueOf(cal));
+
+                finalCal =  finalCal.replaceAll(regSub, String.valueOf(subtraction.calculateOperation(subMatch.group())));
             }
             else{
                 finished = true;
