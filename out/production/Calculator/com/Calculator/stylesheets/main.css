@@ -1,0 +1,76 @@
+.root{
+    -fx-background-color: #121212;
+    -fx-font-family: "Roboto";
+}
+
+.label{
+    -fx-font-size: 45px;
+    -fx-text-fill: white;
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-border-color: #333333;
+    -fx-border-width: 2px;
+}
+
+.text-field{
+    -fx-font-size: 50px;
+    -fx-text-fill: whitesmoke;
+    -fx-background-color: #121212;
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-border-color: #333333;
+    -fx-border-width: 2px;
+
+}
+
+.text-field:focused {
+    -fx-border-color: lightblue;
+}
+
+
+.button{
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-wrap-text: true;
+}
+
+
+.button:hover {
+    -fx-background-color: #333333;
+}
+
+.tab-pane .tab {
+     -fx-background-color: #121212;
+     -fx-color: white;
+     -fx-pref-width: 85;
+     -fx-pref-height: 40;
+    }
+
+.tab .tab-label{
+    -fx-color: white;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 17;
+}
+
+.tab-pane .tab:selected{
+    -fx-selected: none;
+    -fx-background-color: #333333;
+}
+
+.tab{
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:selected .tab-label{
+    -fx-text-fill: #60eb85;
+}
+
+.tab-pane .tab-header-area .tab-header-background{
+    -fx-background-color: #121212;
+}
+
+.scroll-pane{
+   -fx-background-color: #121212;
+}
